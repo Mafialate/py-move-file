@@ -11,7 +11,8 @@ def move_file(command: str) -> None:
         if len(destination_file.split("/")) > 1:
             os.makedirs(destination_file.rsplit("/", 1)[0], exist_ok=True)
 
-            with open(source_file, "r") as source, open(destination_file, "w") as destination:
+            with (open(source_file, "r") as source,
+                  open(destination_file, "w") as destination):
                 destination.write(source.read())
 
             os.remove(source_file)
